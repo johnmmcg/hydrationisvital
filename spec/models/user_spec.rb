@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe User do
+    it {should have_many(:user_days)}
+    it {should have_many(:drinks)}
+    it {should have_many(:days).through(:user_days)}
+
+  end
 end

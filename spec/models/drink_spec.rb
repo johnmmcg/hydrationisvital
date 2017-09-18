@@ -8,6 +8,6 @@ RSpec.describe Drink, type: :model do
     it {should have_valid(:user_day_id).when(2)}
     it {should_not have_valid(:user_day_id).when(nil, "")}
 
-    it {should belongs_to():user_day)}
+    it {should belong_to(:user_day)}
   end
 end
