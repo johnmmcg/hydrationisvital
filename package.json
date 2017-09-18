@@ -1,7 +1,7 @@
 {
-  "name": "bare-rails-react",
+  "name": "Vital",
   "version": "1.0.0",
-  "description": "Bare Rails and React app",
+  "description": "A web app for clean, simple hyrdation tracking",
   "main": "webpack.config.js",
   "engines": {
     "node": "7.9.0"
@@ -12,7 +12,7 @@
     "start": "yarn run webpack -- --watch",
     "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
   },
-  "author": "Ivan Lasorsa",
+  "author": "John McGuinness",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
