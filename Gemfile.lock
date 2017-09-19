@@ -92,6 +92,9 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
@@ -115,12 +118,12 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_mime (0.1.4)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
     nio4r (1.2.1)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
     pry (0.10.4)
@@ -237,6 +240,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   fog-aws
+  foundation-rails
   jquery-rails
   launchy
   listen

@@ -1,35 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Vital</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Megrim|Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+
   </head>
+
   <body>
 
-    <p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  <%= link_to image_tag(current_user.avatar), edit_user_registration_path %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+  <% if !user_signed_in? %>
+    <div class="row">
+      <div class="small-12 small-centered columns landingHeader">
+        <h1>Vital</h1>
+      </div>
+    </div>
+  <%end%>
 
-    <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-
-    <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+  <div class='row'>
+    <div class="small-12 small-centered columns">
+      <div class="row mainHeader">
+        <% if user_signed_in? %>
+          hi <strong><%= current_user.email %></strong>
+          <%= link_to edit_user_registration_path do %>
+            <i class="fa fa-wrench" aria-hidden="true"></i>
+          <%end%>
+        <% else %>
+        <div class="row ">
+          <div class="small-4 columns signup">
+            <%= link_to new_user_registration_path do %>
+              <i class="fa fa-user-plus" aria-hidden="true"></i>
+            <%end%>
+          </div>
+          <div class="small-4 columns signin">
+            <%= link_to new_user_session_path do %>
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
+            <%end%>
+        </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
     <%= yield %>
+    <%= javascript_include_tag "application" %>
 
+    <div class='row'>
+      <div class="small-12 small-centered columns">
+        <div class="row footer">
+          <% if user_signed_in? %>
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-wrench" aria-hidden="true"></i>
+            <%end%>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <%end%>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

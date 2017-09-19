@@ -1,8 +1,69 @@
 // @import "*";
 
-/* RGB */
-$color1: rgba(193, 212, 226, 1);
-$color2: rgba(54, 75, 95, 1);
-$color3: rgba(50, 91, 133, 1);
-$color4: rgba(191, 255, 255, 1);
-$color5: rgba(43, 105, 166, 1);
+// fonts
+
+$megrim: 'Megrim', cursive;
+$bungee: 'Bungee Hairline', cursive;
+$opensans: 'Open Sans', sans-serif;
+$sans-condensed: 'Open Sans Condensed', sans-serif;
+
+
+/* colors: */
+$gray: rgba(193, 212, 226, 1);
+$black-blue: rgba(54, 75, 95, 1);
+$dark-blue: rgba(50, 91, 133, 1);
+$light-blue: rgba(191, 255, 255, 1);
+$medium-blue: rgba(43, 105, 166, 1);
+
+body {
+  background-color: $gray;
+}
+
+
+.landingHeader {
+  background:  url(flowingwater.gif) no-repeat center;
+  background-size: cover;
+  margin: 0;
+
+  h1 {
+    font-family: $megrim;
+    font-size: 110px;
+    letter-spacing: 20px;
+    color: $black-blue;
+    opacity: 25;
+    margin: 0 auto;
+    padding: 0;
+    padding-left: 10px;
+    text-align: center;
+    border: solid 5px $black-blue;
+  }
+}
+
+.mainHeader {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.signup {
+  padding: 5px;
+  display: inline-block;
+  text-align: left;
+
+  &:hover {
+    content: "Sign Up"
+  }
+}
+
+.signin {
+  padding: 5px;
+  text-align: right;
+  display: inline-block;
+}
