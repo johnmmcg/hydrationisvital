@@ -1,0 +1,58 @@
+/* colors: */
+/* line 18, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+body {
+  background-color: #c1d4e2;
+}
+
+/* line 23, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.landingHeader {
+  background: url(flowingwater.gif) no-repeat center;
+  background-size: cover;
+  margin: 0;
+}
+/* line 28, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.landingHeader h1 {
+  font-family: "Megrim", cursive;
+  font-size: 110px;
+  letter-spacing: 20px;
+  color: #364b5f;
+  opacity: 25;
+  margin: 0 auto;
+  padding: 0;
+  padding-left: 10px;
+  text-align: center;
+  border: solid 5px #364b5f;
+}
+
+/* line 42, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.mainHeader {
+  text-align: center;
+}
+
+/* line 46, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.footer {
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+/* line 55, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.signup {
+  padding: 5px;
+  display: inline-block;
+  text-align: left;
+}
+/* line 60, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.signup:hover {
+  content: "Sign Up";
+}
+
+/* line 65, /Users/johnmcg/challenges/vital/app/assets/stylesheets/application.scss */
+.signin {
+  padding: 5px;
+  text-align: right;
+  display: inline-block;
+}
