@@ -8,6 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'listen'
 gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'capybara'
@@ -16,6 +18,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'dotenv-rails'
 end
 
 group :test do

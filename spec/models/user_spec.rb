@@ -5,6 +5,5 @@ RSpec.describe User, type: :model do
     it {should have_many(:user_days)}
     it {should have_many(:drinks)}
     it {should have_many(:days).through(:user_days)}
-
   end
 end
