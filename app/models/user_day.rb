@@ -1,7 +1,7 @@
 class UserDay < ApplicationRecord
-  validates_presence_of :user_id, :day_id, :ammount
+  validates_presence_of :user_id, :day_id, :amount
 
-  validates :ammount, numericality: {
+  validates :amount, numericality: {
     greater_than_or_equal_to: 0
   }
 
