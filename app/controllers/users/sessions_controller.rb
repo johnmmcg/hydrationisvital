@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
     if !Day.exists?(date: Date.today)
       @day = Day.create(date: Date.today)
       @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
-      @drink = Drink.create(user_day_id: @user_day.id, ammount: 0)
+      @drink = Drink.create(user_day_id: @user_day.id, amount: 0)
     end
     super
   end
