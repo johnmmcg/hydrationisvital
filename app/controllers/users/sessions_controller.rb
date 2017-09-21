@@ -6,14 +6,22 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  def show
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    else
+      user = User.find(params[:id])
+      render :show
+    end
+  end
+
   # POST /resource/sign_in
   def create
-    if !Day.exists?(date: Date.today)
-      @day = Day.create(date: Date.today)
-      @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
-      @drink = Drink.create(user_day_id: @user_day.id, ammount: 0)
-    end
-    super
+    @user = current_user
+    Day.create(date: Date.today)
+    UserDay.create(user_id: @user.id, day_id: Day.last.id)
+    binding.pry
+    redirect_to user_path(@user)
   end
   #
   # DELETE /resource/sign_out
@@ -26,5 +34,9 @@ class Users::SessionsController < Devise::SessionsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :daily_goal, :metric)
   end
 end

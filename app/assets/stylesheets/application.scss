@@ -1,5 +1,5 @@
 // @import "*";
-
+@import 'foundation';
 // fonts
 
 $megrim: 'Megrim', cursive;
@@ -19,24 +19,35 @@ body {
   background-color: $gray;
 }
 
-
 .landingHeader {
   background:  url(flowingwater.gif) no-repeat center;
   background-size: cover;
-  margin: 0;
+  margin: 0 auto;
+  padding: 0px;
+  border: solid 5px $black-blue;
+  transition: .2s;
 
   h1 {
+    text-decoration: none;
     font-family: $megrim;
-    font-size: 110px;
+    font-size: 100px;
     letter-spacing: 20px;
     color: $black-blue;
-    opacity: 25;
-    margin: 0 auto;
-    padding: 0;
+    margin: 0px auto;
+    padding: 0px;
+    width: 100%;
     padding-left: 10px;
     text-align: center;
-    border: solid 5px $black-blue;
+    transition: .2s;
+
+    &:hover {
+      color: $light-blue;
+      border: solid 3px $light-blue;
+      background-color: $dark-blue;
+      opacity: 0.9;
+    }
   }
+
 }
 
 .mainHeader {
@@ -50,11 +61,11 @@ body {
   bottom: 0;
   left: 0;
   padding: 1rem;
+  margin: 10px auto;
 }
 
 .signup {
   padding: 5px;
-  display: inline-block;
   text-align: left;
 
   &:hover {
@@ -65,5 +76,8 @@ body {
 .signin {
   padding: 5px;
   text-align: right;
-  display: inline-block;
+}
+
+.dashboardContainer {
+  margin: 0 auto;
 }

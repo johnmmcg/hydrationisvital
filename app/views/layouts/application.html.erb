@@ -18,24 +18,34 @@
 
   <body>
 
-  <% if !user_signed_in? %>
     <div class="row">
       <div class="small-12 small-centered columns landingHeader">
-        <h1>Vital</h1>
+        <% if user_signed_in? %>
+          <a href="/users/<%="#{current_user.id}"%>">
+        <% else %>
+          <a href="/">
+        <%end%>
+          <h1>Vital</h1>
+        </a>
       </div>
     </div>
-  <%end%>
+
 
   <div class='row'>
     <div class="small-12 small-centered columns">
       <div class="row mainHeader">
+        <div class="small-12 small-centered columns">
+
         <% if user_signed_in? %>
           hi <strong><%= current_user.email %></strong>
           <%= link_to edit_user_registration_path do %>
             <i class="fa fa-wrench" aria-hidden="true"></i>
           <%end%>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <%end%>
         <% else %>
-        <div class="row ">
+      </div>
           <div class="small-4 columns signup">
             <%= link_to new_user_registration_path do %>
               <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -45,7 +55,7 @@
             <%= link_to new_user_session_path do %>
               <i class="fa fa-sign-in" aria-hidden="true"></i>
             <%end%>
-        </div>
+          </div>
         </div>
         <% end %>
       </div>
@@ -55,19 +65,5 @@
     <%= yield %>
     <%= javascript_include_tag "application" %>
 
-    <div class='row'>
-      <div class="small-12 small-centered columns">
-        <div class="row footer">
-          <% if user_signed_in? %>
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-wrench" aria-hidden="true"></i>
-            <%end%>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out" aria-hidden="true"></i>
-            <%end%>
-          <% end %>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
