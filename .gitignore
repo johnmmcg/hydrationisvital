@@ -20,3 +20,4 @@
 /app/assets/javascripts/bundle.js
 /react/coverage
 .env
+paskage-lock.json
