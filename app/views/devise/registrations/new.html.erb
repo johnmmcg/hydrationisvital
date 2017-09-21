@@ -29,8 +29,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :daily_goal, 'What is your daily hydration goal? (fl. oz)'%>
-    <%= f.text_field :daily_goal %>
+    <%= f.label :daily_goal, 'What is your daily hydration goal? (ammount, metric)'%>
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.text_field :daily_goal %>
+      </div>
+      <div class="small-6 columns">
+        <%= f.text_field :metric, placeholder: 'cups'%>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
