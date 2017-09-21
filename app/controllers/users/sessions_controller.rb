@@ -20,7 +20,6 @@ class Users::SessionsController < Devise::SessionsController
     @user = current_user
     Day.create(date: Date.today)
     UserDay.create(user_id: @user.id, day_id: Day.last.id)
-    binding.pry
     redirect_to user_path(@user)
   end
   #

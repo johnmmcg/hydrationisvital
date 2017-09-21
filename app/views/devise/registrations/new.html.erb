@@ -21,12 +21,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :avatar, 'Upload an Avatar'%>
-    <%= image_tag(@user.avatar) %>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
-  </div>
 
   <div class="field">
     <%= f.label :daily_goal, 'What is your daily hydration goal? (ammount, metric)'%>

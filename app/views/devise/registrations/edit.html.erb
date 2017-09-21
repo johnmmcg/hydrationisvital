@@ -32,13 +32,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :avatar, 'Edit your Avatar'%>
-    <%= image_tag(@user.avatar) %>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
-  </div>
-
-  <div class="field">
     <%= f.label :daily_goal, 'What is your daily hydration goal? (ammount, metric)'%>
     <div class="row">
       <div class="small-6 columns">
