@@ -4,12 +4,13 @@ class DashboardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      user: {},
+      user_days: [],
+      today: ""
     }
   }
 
   componentDidMount() {
-    debugger;
     fetch(`/api/v1/users/${this.props.params.user}`)
       .then(response => {
         if (response.ok) {
@@ -22,15 +23,21 @@ class DashboardContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        debugger
+        this.setState({
+          user: body.user,
+          user_days: body.user_days,
+          today: body.today
+        })
       })
+
   }
 
   render() {
+
     return(
       <div className='row'>
         <div className="small-12 small-centered columns">
-          <h1>testing testing</h1>
+          <h1>{this.state.today.date}</h1>
         </div>
       </div>
     )

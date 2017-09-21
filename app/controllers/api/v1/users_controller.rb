@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 class Api::V1::UsersController < ApiController
 
   def index
@@ -12,14 +15,17 @@ class Api::V1::UsersController < ApiController
     user_days.each do |ud|
       @user_days_array <<
         {
-          day: ud.day,
+          date: ud.day.date.strftime('%m/%d/%Y'),
           metric: ud.user.metric,
           amount: ud.amount
         }
     end
+
+
     data = {
       user: user,
-      user_days: @user_days_array
+      user_days: @user_days_array,
+      today: @user_days_array[-1]
     }
 
     render json: data
