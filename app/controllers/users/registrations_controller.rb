@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         @user_day = UserDay.create(user_id: @user.id, day_id: @day.id )
       end
-      
+
       sign_in(:user, @user)
       redirect_to user_path(@user)
     else
