@@ -10,8 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    binding.pry
-    @user = User.new(
+      @user = User.new(
       email: params[:user][:email],
       password: params[:user][:password],
       daily_goal: params[:user][:daily_goal],
@@ -29,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         @user_day = UserDay.create(user_id: @user.id, day_id: @day.id )
       end
-      binding.pry
+      
       sign_in(:user, @user)
       redirect_to user_path(@user)
     else
