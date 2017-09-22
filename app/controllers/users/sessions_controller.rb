@@ -34,7 +34,8 @@ class Users::SessionsController < Devise::SessionsController
       sign_in(:user, @user)
       redirect_to user_path(@user)
     else
-      super
+      flash[:notice] = 'please try again'
+      render 'sessions/new'
     end
   end
   #

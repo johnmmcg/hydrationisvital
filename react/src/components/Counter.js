@@ -83,22 +83,47 @@ class Counter extends Component {
       />
 
     return(
-      <div className='counter animated fadeInUp'>
-      <h2>Today: </h2>
-        <div className="add">
-          <i className="fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
+      <div className='row counter animated fadeInUp'>
+        <div className="row">
+
+          <div className='small-4 columns'>
+            <h2>Today: </h2>
+          </div>
+
+          <div className="small-4 columns">
+            <div className="add">
+              <i className="fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
+            </div>
+
+            <h1> {this.state.amount} </h1>
+
+            <div className="subtract">
+              <i className="fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
+            </div>
+          </div>
+
+          <div className="small-4 columns">
+            <h2> {this.state.metric} </h2>
+          </div>
+
         </div>
 
-        <h1> {this.state.amount} </h1>
 
-        <div className="subtract">
-          <i className="fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
+
+        <div className="row percent">
+          <div className="small-12 columns">
+            <h3> Daily Goal: {percentCounter}% </h3>
+            <h4> {this.state.dailyGoal} {this.state.metric} </h4>
+
+          </div>
         </div>
 
-      <h2> {this.state.metric} </h2>
-        <p> {error} </p>
-        <h3> {goalReachAlert} </h3>
-        <h4> Progress: {percentCounter}% </h4>
+        <div className="row">
+          <div className="small-12 small-centered columns flash animated fadeInUp">
+            <h3> {error} </h3>
+            <h3> {goalReachAlert} </h3>
+          </div>
+        </div>
       </div>
     )
   }
