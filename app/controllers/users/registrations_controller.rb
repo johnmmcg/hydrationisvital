@@ -13,7 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user = User.new(
       email: params[:user][:email],
-      password: params[:user][:password]
+      password: params[:user][:password],
+      daily_goal: params[:user][:daily_goal],
+      metric: params[:user][:metric]
     )
     if @user.save
       if Day.find_by(date: Date.today)
