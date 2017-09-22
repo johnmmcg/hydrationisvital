@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :daily_goal, :avatar, :metric])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:emaill, :password, :daily_goal, :avatar, :metric])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :daily_goal, :metric])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:emaill, :password, :daily_goal, :metric])
   end
 
   def devise_mapping
