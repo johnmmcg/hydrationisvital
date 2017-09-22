@@ -15,12 +15,14 @@ class Api::V1::UsersController < ApiController
     user_days.each do |ud|
       @user_days_array <<
         {
+          id: ud.id,
           date: ud.day.date.strftime('%m/%d/%Y'),
+          weekday: ud.day.date.strftime('%A').downcase,
           metric: ud.user.metric,
-          amount: ud.amount
+          amount: ud.amount,
+          day: ud.day
         }
     end
-
 
     data = {
       user: user,

@@ -17,10 +17,24 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    @user = current_user
-    Day.create(date: Date.today)
-    UserDay.create(user_id: @user.id, day_id: Day.last.id)
-    redirect_to user_path(@user)
+    if User.find_by(email: params[:user][:email])
+      @user = User.find_by(email: params[:user][:email])
+      if Day.find_by(date: Date.today)
+        @day = Day.find_by(date: Date.today)
+      else
+        @day = Day.create(date: Date.today)
+      end
+
+      if UserDay.find_by(day_id: @day.id)
+        @user_day = UserDay.find_by(day_id: @day.id)
+      else
+        @user_day = UserDay.create(user_id: @user, day_id: @day.id )
+      end
+      sign_in(:user, @user)
+      redirect_to user_path(@user)
+    else
+      super
+    end
   end
   #
   # DELETE /resource/sign_out
