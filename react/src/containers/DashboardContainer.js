@@ -57,11 +57,11 @@ class DashboardContainer extends Component {
 }
 
   render() {
-    debugger;
     return(
-      <div className='row'>
+      <div className='row animated fadeInDown'>
         <div className="small-12 small-centered columns">
-          <h1>{this.state.today.date}</h1>
+          <h1>happy {this.state.today.weekday}</h1>
+          <h2> {this.state.today.date} </h2>
           <h1>Daily Goal: {this.state.user.daily_goal} {this.state.user.metric} </h1>
           <Counter
             key={this.state.user.id}

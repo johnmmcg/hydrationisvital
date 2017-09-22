@@ -20,6 +20,7 @@ class Api::V1::UserDaysController < ApiController
       today: {
         id: user_day.id,
         date: user_day.day.date.strftime('%m/%d/%Y'),
+        weekday: user_day.day.date.strftime('%A').downcase,
         metric: user_day.user.metric,
         amount: user_day.amount,
         day: user_day.day
@@ -46,6 +47,7 @@ class Api::V1::UserDaysController < ApiController
       today: {
         id: user_day.id,
         date: user_day.day.date.strftime('%m/%d/%Y'),
+        weekday: user_day.day.date.strftime('%A').downcase,
         metric: user_day.user.metric,
         amount: user_day.amount,
         day: user_day.day

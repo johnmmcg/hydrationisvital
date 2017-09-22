@@ -17,6 +17,7 @@ class Api::V1::UsersController < ApiController
         {
           id: ud.id,
           date: ud.day.date.strftime('%m/%d/%Y'),
+          weekday: ud.day.date.strftime('%A').downcase,
           metric: ud.user.metric,
           amount: ud.amount,
           day: ud.day
