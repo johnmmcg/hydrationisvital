@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     user = User.new
-    super
+    render :new
   end
 
   def show
