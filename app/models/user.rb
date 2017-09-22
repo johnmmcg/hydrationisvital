@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates_presence_of :email
+  validates_presence_of :email, :daily_goal, :metric
 
   has_many :user_days
   has_many :days, through: :user_days
@@ -9,6 +9,4 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #carrierwave
-  mount_uploader :avatar, AvatarUploader
 end
