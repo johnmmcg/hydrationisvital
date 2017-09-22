@@ -9,7 +9,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+
+    @user = User.new(
+      email: params[:user][:email],
+      password: params[:user][:password],
+      daily_goal: params[:user][:daily_goal],
+      metric: params[:user][:metric]
+    )
+    if @user.save
+      if Day.find_by(date: Date.today)
+        @day = Day.find_by(date: Date.today)
+      else
+        @day = Day.create(date: Date.today)
+      end
+
+      if UserDay.find_by(user_id: @user.id, day_id: @day.id)
+        @user_day = UserDay.find_by(user_id: @user.id, day_id: @day.id)
+      else
+        @user_day = UserDay.create(user_id: @user.id, day_id: @day.id )
+      end
+      binding.pry
+      sign_in(:user, @user)
+      redirect_to user_path(@user)
+    else
+      flash[:notce] = @user.errors.full_messages.join(', ')
+      render :new
+    end
   end
 
   # GET /resource/edit
