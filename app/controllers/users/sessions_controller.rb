@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
   #
   # GET /resource/sign_in
   def new
-    user = User.new
+    @user = User.new
     render :new
   end
 
