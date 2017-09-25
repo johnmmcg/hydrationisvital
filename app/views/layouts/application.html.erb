@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Megrim|Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Bungee|Megrim|Open+Sans|Open+Sans+Condensed:300|Comfortaa|Poiret+One" rel="stylesheet">
 
   </head>
 
@@ -35,27 +35,31 @@
 
   <div class='row'>
     <div class="small-12 small-centered columns">
-      <div class="row mainHeader">
-        <div class="small-12 small-centered columns">
+      <div class="row unstack mainHeader">
+        <div class="small-7 columns animated fadeInDown">
 
         <% if user_signed_in? %>
-          hi <strong><%= current_user.email %></strong>
+            <h3> hi <strong><%= current_user.email %></strong> </h3>
+        </div>
+        <div class="small-5 small-left columns animated fadeInDown">
           <%= link_to edit_user_registration_path do %>
-            <i class="fa fa-wrench" aria-hidden="true"></i>
+            <i class="fa fa-wrench icon" aria-hidden="true"></i>
           <%end%>
+
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <i class="fa fa-sign-out icon" aria-hidden="true"></i>
           <%end%>
+        </div>
         <% else %>
       </div>
-          <div class="small-4 columns signup">
+          <div class="small-5 small-left columns signup animated fadeInDown">
             <%= link_to new_user_registration_path do %>
-              <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <i class="fa fa-user-plus icon" aria-hidden="true"></i>
             <%end%>
           </div>
-          <div class="small-4 columns signin">
+          <div class="small-5 columns signin animated fadeInDown">
             <%= link_to new_user_session_path do %>
-              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              <i class="fa fa-sign-in icon" aria-hidden="true"></i>
             <%end%>
           </div>
         </div>
@@ -63,6 +67,12 @@
       </div>
     </div>
   </div>
+
+  <% flash.each do |key, value| %>
+    <div class="flash">
+      <h3><%= value %></h3>
+    </div>
+  <%end%>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>

@@ -10,8 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    binding.pry
-    @user = User.new(
+      @user = User.new(
       email: params[:user][:email],
       password: params[:user][:password],
       daily_goal: params[:user][:daily_goal],
@@ -29,12 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         @user_day = UserDay.create(user_id: @user.id, day_id: @day.id )
       end
-      binding.pry
+      flash[:notce] = ""
+
       sign_in(:user, @user)
       redirect_to user_path(@user)
     else
       flash[:notce] = @user.errors.full_messages.join(', ')
-      render :new
+      render :edit
     end
   end
 
@@ -45,7 +45,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    @user = User.find(params[:id])
+    if @user.update_attributes(configure_account_update_params)
+      flash[:notce] = "success"
+      sign_in(@user)
+      redirect_to user_path(@user)
+    else
+      flash[:notce] = @user.errors.full_messages.join(', ')
+      render :edit
+    end
   end
 
   # DELETE /resource

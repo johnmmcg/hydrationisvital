@@ -58,18 +58,25 @@ class DashboardContainer extends Component {
 
   render() {
     return(
-      <div className='row animated fadeInDown'>
-        <div className="small-12 small-centered columns">
-          <h1>happy {this.state.today.weekday}</h1>
-          <h2> {this.state.today.date} </h2>
-          <h1>Daily Goal: {this.state.user.daily_goal} {this.state.user.metric} </h1>
-          <Counter
-            key={this.state.user.id}
-            user={this.state.user}
-            userDay={this.state.today}
-            dailyGoal={this.state.user.daily_goal}
-            changeAmount={this.changeAmount}
-          />
+      <div className='row animated fadeInUp dashboardContainer'>
+        <div className='row date'>
+            <div className="small-6 columns animated fadeInLeft">
+              <h1>happy {this.state.today.weekday}</h1>
+            </div>
+            <div className="small-6 columns animated fadeInRight">
+              <h2> {this.state.today.date} </h2>
+            </div>
+        </div>
+        <div className='row counterContainer'>
+          <div className="small-12 small-centered columns">
+            <Counter
+              key={this.state.user.id}
+              user={this.state.user}
+              userDay={this.state.today}
+              dailyGoal={this.state.user.daily_goal}
+              changeAmount={this.changeAmount}
+            />
+          </div>
         </div>
       </div>
     )
