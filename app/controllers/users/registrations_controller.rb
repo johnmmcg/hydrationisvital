@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash[:notce] = ""
 
       sign_in(:user, @user)
-      redirect_to user_path(@user)
+      redirect_to users_registration_path
     else
       flash[:notce] = @user.errors.full_messages.join(', ')
       render :edit
