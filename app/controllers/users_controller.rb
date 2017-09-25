@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       if !Day.exists?(date: Date.today)
         @day = Day.create(date: Date.today)
         @user_day = UserDay.create(user_id: @user.id, day_id: @day.id)
+
       else
         @day = Day.find_by(date: Date.today)
         if !UserDay.exists?(day_id: @day.id)
