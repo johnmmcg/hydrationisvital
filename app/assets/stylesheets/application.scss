@@ -26,7 +26,7 @@ body {
   margin: 7px auto;
   margin-top: 0px;
   padding: 0px;
-  border: solid 5px $black-blue;
+  border: solid 3px $black-blue;
   transition: .2s;
 
   h1 {
@@ -40,12 +40,16 @@ body {
     width: 100%;
     padding-left: 10px;
     text-align: center;
+    color: $light-blue;
+    border: solid 3px $light-blue;
+    background-color: $dark-blue;
+    opacity: 0.9;
     transition: .2s;
 
     &:hover {
-      color: $light-blue;
-      border: solid 2px $light-blue;
-      background-color: $dark-blue;
+      font-size: 75px;
+      background-color: $light-blue;
+      color: $dark-blue;
       opacity: 0.9;
     }
   }
@@ -71,6 +75,7 @@ body {
   }
 
   .icon {
+    overflow: hidden;
     margin: 5px;
     padding: 5px;
     font-size: 20px;
@@ -79,6 +84,7 @@ body {
     transition: .2s;
 
     &:hover {
+      font-size: 30px;
       background-color: $dark-blue;
       color: $light-blue;
       border-color: $light-blue;
@@ -97,8 +103,9 @@ body {
 }
 
 .dashboardContainer {
-  margin: 5px auto;
-  border: solid 5px $dark-blue;
+  background: image-url('BubbleColor.svg') repeat repeat;
+  margin: 0px auto;
+  border: solid 3px $light-blue;
   padding: 2px;
   margin: 10px auto;
   text-align: center;
@@ -111,14 +118,14 @@ body {
       text-align: left;
       font-family: $comfort;
       font-size: 20px;
-      color: $black-blue;
+      color: $gray;
     }
 
     h2 {
       text-align: right;
       font-weight: bolder;
       font-family: $bungee-thin;
-      color: $black-blue;
+      color: $gray;
     }
 
   }
@@ -127,14 +134,14 @@ body {
     font-family: $comfort;
     font-size: 26px;
     font-weight: bolder;
-    color: $medium-blue;
+    color: $gray;
     margin-bottom: 3px;
   }
 }
 
 .counterContainer {
   margin-top: 15px;
-  color: $medium-blue;
+  color: $gray;
   padding-bottom: 5px;
 
   h1 {
@@ -151,6 +158,7 @@ body {
     margin-top: 130px;
     vertical-align: middle;
     margin-left: 15px;
+    color: $gray;
   }
 
   h2.metric {
@@ -160,6 +168,7 @@ body {
     font-weight: bolder;
     margin-top: 130px;
     vertical-align: middle;
+    color: $gray;
   }
 
   .counter {
@@ -170,20 +179,30 @@ body {
     .add, .subtract {
       margin: 0 auto;
       text-align: center;
-      color: $black-blue;
+      color: $light-blue;
       padding: 0px;
       font-size: 25px;
+      transition: .2s;
+
+      &:hover {
+        font-size: 30px;
+      }
     }
 
     .ten {
       padding: 0px;
       margin: 0 auto;
       font-size: 50px;
+      transition: .2s;
+
+      &:hover {
+        font-size: 55px;
+      }
     }
 
     h1 {
       text-align: center;
-      color: $black-blue;
+      color: $gray;
       padding: 0px;
       font-size: 85px;
       font-family: $comfort;
@@ -208,7 +227,7 @@ body {
   h3 {
     text-align: center;
     margin-top: 15px;
-    color: $dark-blue;
+    color: $gray;
     font-family: $megrim;
     font-size: 24px;
     font-weight: bolder;
@@ -217,7 +236,7 @@ body {
 
   h4 {
     text-align: center;
-    color: $medium-blue;
+    color: $gray;
     font-family: $comfort;
     font-size: 16px;
     font-weight: bolder;
@@ -226,6 +245,7 @@ body {
   .number {
     text-align: right;
     margin: 0px;
+    overflow: hidden;
 
     h1 {
       font-family: $comfort;
@@ -234,6 +254,7 @@ body {
       padding: 0px;
       position: relative;
       bottom: 0;
+      opacity: .5;
     }
   }
 }
@@ -242,7 +263,7 @@ body {
   text-align: center;
 
   h3 {
-    color: $dark-blue;
+    color: $light-blue;
     font-family: $comfort;
     font-size: 15px;
   }

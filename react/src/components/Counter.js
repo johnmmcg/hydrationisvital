@@ -126,31 +126,31 @@ class Counter extends Component {
 
     return(
       <div>
-      <div className="row">
-        <div className="small-12 small-centered columns flash animated fadeIn">
-          <h3> {error} </h3>
-          <h3> {goalReachAlert} </h3>
-        </div>
-      </div>
-
-      <div className='row align-center counter animated fadeInUp'>
         <div className="row">
-
-          <div className='small-4 columns'>
-            <h2 className="today">Today: </h2>
+          <div className="small-12 small-centered columns flash animated fadeIn">
+            <h3> {error} </h3>
+            <h3> {goalReachAlert} </h3>
           </div>
+        </div>
 
-          <div className="small-4 columns centerpiece">
-            <div className="add">
-              <i className="fa fa-angle-up ten" aria-hidden="true" onClick={this.handleAddTen}></i>
-                <br/>
-              <i className="fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
+        <div className='row align-center counter animated fadeInUp'>
+          <div className="row">
+
+            <div className='small-4 columns'>
+              <h2 className="today">Today: </h2>
             </div>
 
-            <h1> {this.state.amount} </h1>
+            <div className="small-4 columns centerpiece">
+              <div className="add">
+                <i className="fa fa-angle-up ten" aria-hidden="true" onClick={this.handleAddTen}></i>
+                  <br/>
+                <i className="fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
+              </div>
 
-            <div className="subtract">
-              <i className="fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
+              <h1> {this.state.amount} </h1>
+
+              <div className="subtract">
+                <i className="fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
                 <br/>
               <i className="fa fa-angle-down ten" aria-hidden="true" onClick={this.handleSubtractTen}></i>
             </div>
@@ -164,16 +164,16 @@ class Counter extends Component {
 
 
 
-        <div className="row percent">
-          <div className="small-5 columns goal">
-            <h3> Daily Goal: </h3>
-            <h4>({this.state.dailyGoal} {this.state.metric})</h4>
-          </div>
-          <div className="small-7 columns number">
-            <h1> {percentCounter}% </h1>
+          <div className="row percent">
+            <div className="small-5 columns goal">
+              <h3> Daily Goal : </h3>
+              <h4>({this.state.dailyGoal} {this.state.metric})</h4>
+            </div>
+            <div className="small-7 columns number">
+              <h1>{percentCounter}%</h1>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     )
   }
