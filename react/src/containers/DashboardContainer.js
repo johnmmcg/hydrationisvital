@@ -60,10 +60,10 @@ class DashboardContainer extends Component {
     return(
       <div className='row animated fadeInUp dashboardContainer'>
         <div className='row date'>
-            <div className="small-6 columns">
+            <div className="small-6 columns animated fadeInLeft">
               <h1>happy {this.state.today.weekday}</h1>
             </div>
-            <div className="small-6 columns">
+            <div className="small-6 columns animated fadeInRight">
               <h2> {this.state.today.date} </h2>
             </div>
         </div>

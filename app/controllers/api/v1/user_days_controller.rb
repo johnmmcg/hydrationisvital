@@ -7,6 +7,17 @@ class Api::V1::UserDaysController < ApiController
   end
 
   def show
+    if !Day.exists?(date: Date.today)
+      @day = Day.create(date: Date.today)
+      @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
+    else
+      @day = Day.find_by(date: Date.today)
+      if !UserDay.exists?(day_id: @day.id)
+        @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
+      else
+        @user_day = UserDay.find_by(user_id: current_user.id, day_id: @day.id)
+      end
+    end
     user_day = UserDay.find(params[:id])
     id = user_day.id
     amount = user_day.amount

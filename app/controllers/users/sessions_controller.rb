@@ -31,11 +31,12 @@ class Users::SessionsController < Devise::SessionsController
       else
         @user_day = UserDay.create(user_id: @user, day_id: @day.id )
       end
+      flash[:notce] = ""
       sign_in(:user, @user)
       redirect_to user_path(@user)
     else
-      flash[:notice] = 'please try again'
-      render 'sessions/new'
+      flash[:notice] = 'Invalid email or password. Please try again or sign up.'
+      render 'devise/sessions/new'
     end
   end
   #

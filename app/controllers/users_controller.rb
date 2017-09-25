@@ -11,7 +11,12 @@ class UsersController < ApplicationController
       if !Day.exists?(date: Date.today)
         @day = Day.create(date: Date.today)
         @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
-        @drink = Drink.create(user_day_id: @user_day.id, ammount: 0)
+      else
+        @day = Day.find_by(date: Date.today)
+        if !UserDay.exists?(day_id: @day.id)
+          binding.pry
+          @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
+        end
       end
       redirect_to user_path(@user)
     else
@@ -26,6 +31,18 @@ class UsersController < ApplicationController
     else
       user = User.find(params[:id])
       render :show
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "success!"
+      sign_in(@user)
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = @user.errors.full_messages.join(', ')
+      render 'devise/registrations/edit'
     end
   end
 

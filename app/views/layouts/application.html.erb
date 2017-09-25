@@ -52,14 +52,14 @@
         </div>
         <% else %>
       </div>
-          <div class="small-4 columns signup">
+          <div class="small-5 small-left columns signup animated fadeInDown">
             <%= link_to new_user_registration_path do %>
-              <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <i class="fa fa-user-plus icon" aria-hidden="true"></i>
             <%end%>
           </div>
-          <div class="small-4 columns signin">
+          <div class="small-5 columns signin animated fadeInDown">
             <%= link_to new_user_session_path do %>
-              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              <i class="fa fa-sign-in icon" aria-hidden="true"></i>
             <%end%>
           </div>
         </div>
@@ -67,6 +67,12 @@
       </div>
     </div>
   </div>
+
+  <% flash.each do |key, value| %>
+    <div class="flash">
+      <h3><%= value %></h3>
+    </div>
+  <%end%>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>

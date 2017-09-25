@@ -15,10 +15,30 @@ class Counter extends Component {
     }
     this.handleAdd = this.handleAdd.bind(this)
     this.handleSubtract = this.handleSubtract.bind(this)
+    this.handleAddTen = this.handleAddTen.bind(this)
+    this.handleSubtractTen = this.handleSubtractTen.bind(this)
   }
 
   componentDidMount() {
     let percent = Math.round((this.state.amount / this.state.dailyGoal) * 100)
+    this.setState({percent: percent})
+  }
+
+  handleAddTen(event) {
+    let newAmount = this.state.amount + 10
+    let amountPayload = newAmount
+    this.props.changeAmount(amountPayload)
+    let percent = Math.round((newAmount / this.state.dailyGoal) * 100)
+    let percentCounter =
+      <CountUp
+        className="percent"
+        duration={2}
+        start={this.state.percent}
+        end={percent}
+        useEasing={true}
+      />
+    this.setState({amount: newAmount})
+    this.setState({lastPercent: this.state.percent})
     this.setState({percent: percent})
   }
 
@@ -63,6 +83,28 @@ class Counter extends Component {
     }
   }
 
+  handleSubtractTen(event) {
+    if (this.state.amount - 10 < 1) {
+      this.setState({amount: 0})
+    } else {
+      let newAmount = this.state.amount - 10
+      let amountPayload = newAmount
+      this.props.changeAmount(amountPayload)
+      let percent = Math.round((newAmount / this.state.dailyGoal) * 100)
+      let percentCounter =
+        <CountUp
+          className="percent"
+          duration={2}
+          start={this.state.percent}
+          end={percent}
+          useEasing={true}
+        />
+      this.setState({amount: newAmount})
+      this.setState({lastPercent: this.state.percent})
+      this.setState({percent: percent})
+    }
+  }
+
   render() {
     let error;
     if (this.state.amount <= 0) {
@@ -83,15 +125,25 @@ class Counter extends Component {
       />
 
     return(
-      <div className='row counter animated fadeInUp'>
+      <div>
+      <div className="row">
+        <div className="small-12 small-centered columns flash animated fadeIn">
+          <h3> {error} </h3>
+          <h3> {goalReachAlert} </h3>
+        </div>
+      </div>
+
+      <div className='row align-center counter animated fadeInUp'>
         <div className="row">
 
           <div className='small-4 columns'>
-            <h2>Today: </h2>
+            <h2 className="today">Today: </h2>
           </div>
 
-          <div className="small-4 columns">
+          <div className="small-4 columns centerpiece">
             <div className="add">
+              <i className="fa fa-angle-up ten" aria-hidden="true" onClick={this.handleAddTen}></i>
+                <br/>
               <i className="fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
             </div>
 
@@ -99,11 +151,13 @@ class Counter extends Component {
 
             <div className="subtract">
               <i className="fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
+                <br/>
+              <i className="fa fa-angle-down ten" aria-hidden="true" onClick={this.handleSubtractTen}></i>
             </div>
           </div>
 
           <div className="small-4 columns">
-            <h2> {this.state.metric} </h2>
+            <h2 className="metric"> {this.state.metric} </h2>
           </div>
 
         </div>
@@ -111,19 +165,15 @@ class Counter extends Component {
 
 
         <div className="row percent">
-          <div className="small-12 columns">
-            <h3> Daily Goal: {percentCounter}% </h3>
-            <h4> {this.state.dailyGoal} {this.state.metric} </h4>
-
+          <div className="small-5 columns goal">
+            <h3> Daily Goal: </h3>
+            <h4>({this.state.dailyGoal} {this.state.metric})</h4>
+          </div>
+          <div className="small-7 columns number">
+            <h1> {percentCounter}% </h1>
           </div>
         </div>
-
-        <div className="row">
-          <div className="small-12 small-centered columns flash animated fadeInUp">
-            <h3> {error} </h3>
-            <h3> {goalReachAlert} </h3>
-          </div>
-        </div>
+      </div>
       </div>
     )
   }
