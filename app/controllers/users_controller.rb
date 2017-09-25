@@ -10,12 +10,11 @@ class UsersController < ApplicationController
       flash[:notice] = "success!"
       if !Day.exists?(date: Date.today)
         @day = Day.create(date: Date.today)
-        @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
+        @user_day = UserDay.create(user_id: @user.id, day_id: @day.id)
       else
         @day = Day.find_by(date: Date.today)
         if !UserDay.exists?(day_id: @day.id)
-          binding.pry
-          @user_day = UserDay.create(user_id: current_user.id, day_id: @day.id)
+          @user_day = UserDay.create(user_id: @user.id, day_id: @day.id)
         end
       end
       redirect_to user_path(@user)
