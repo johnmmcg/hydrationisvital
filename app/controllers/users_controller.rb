@@ -28,19 +28,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    if !user_signed_in?
-      redirect_to "/users/#{@user.id}"
-    else
-      user = User.find(params[:id])
-      render :show
-    end
+    @user = User.find(params[:id])
+    sign_in @user
+    render :show
   end
 
   def update
     @user = User.find(current_user.id)
     if @user.update_attributes(user_params)
       flash[:notice] = "success!"
-      sign_in(:user, @user)
+      sign_in @user
       redirect_to user_path(@user)
     else
       flash[:notice] = @user.errors.full_messages.join(', ')
