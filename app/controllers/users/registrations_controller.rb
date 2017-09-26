@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to "/users/#{@user.id}"
     else
       flash[:notce] = @user.errors.full_messages.join(', ')
-      render :edit
+      render :new
     end
   end
 
