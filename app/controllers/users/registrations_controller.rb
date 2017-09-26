@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-      @user = User.new(
+    @user = User.new(
       email: params[:user][:email],
       password: params[:user][:password],
       daily_goal: params[:user][:daily_goal],
@@ -30,8 +30,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
       flash[:notce] = ""
 
-      sign_in(:user, @user)
-      redirect_to users_registration_path
+      sign_in @user
+      redirect_to "/users/#{@user.id}"
     else
       flash[:notce] = @user.errors.full_messages.join(', ')
       render :edit
@@ -48,7 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.find(params[:id])
     if @user.update_attributes(configure_account_update_params)
       flash[:notce] = "success"
-      sign_in(@user)
+      sign_in(:user, @user)
       redirect_to user_path(@user)
     else
       flash[:notce] = @user.errors.full_messages.join(', ')
