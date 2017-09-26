@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def new
     user = User.new
+    render 'devise/registrations/new'
   end
 
   def create
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
           @user_day = UserDay.create(user_id: @user.id, day_id: @day.id)
         end
       end
+      sign_in(:user, @user)
       redirect_to user_path(@user)
     else
       flash[:notice] = @user.errors.full_messages.join(', ')
@@ -26,19 +28,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    if !user_signed_in?
-      redirect_to new_user_session_path
-    else
-      user = User.find(params[:id])
-      render :show
-    end
+    @user = User.find(params[:id])
+    sign_in @user
+    render :show
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if @user.update_attributes(user_params)
       flash[:notice] = "success!"
-      sign_in(@user)
+      sign_in @user
       redirect_to user_path(@user)
     else
       flash[:notice] = @user.errors.full_messages.join(', ')
