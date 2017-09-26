@@ -21,10 +21,18 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'dotenv-rails'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'poltergeist'
 end
 
 group :test do
   gem 'launchy', require: false
+  gem "capybara-screenshot"
+  gem "chromedriver-helper"
+  gem "database_cleaner"
+  gem "generator_spec"
+  gem "rspec-retry"
+  gem 'selenium-webdriver', '~> 3.0'
 end
 
 group :production do
