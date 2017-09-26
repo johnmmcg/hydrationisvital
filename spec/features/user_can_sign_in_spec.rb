@@ -29,7 +29,7 @@ feature 'User can sign in', js: true do
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
 
-    click_button('Log in')
+    find('input[name="commit"]').click
 
     expect(page).to have_content('hi spec@gmail.com')
   end
@@ -42,7 +42,7 @@ feature 'User can sign in', js: true do
     fill_in 'Email', with: 'spec2@gmial.com'
     fill_in 'Password', with: 'passwrod'
 
-    click_button('Log in')
+    find('input[name="commit"]').click
 
     expect(page).to have_content('Log in')
     expect(page).to have_content('Email')

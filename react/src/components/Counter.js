@@ -166,7 +166,7 @@ class Counter extends Component {
 
           <div className="row percent">
             <div className="small-5 columns goal">
-              <h3> Daily Goal : </h3>
+              <h3>Daily Goal :</h3>
               <h4>({this.state.dailyGoal} {this.state.metric})</h4>
             </div>
             <div className="small-7 columns number">

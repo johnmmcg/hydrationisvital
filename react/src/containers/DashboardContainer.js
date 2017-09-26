@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Counter from '../components/Counter'
+import Counter from '../components/Counter';
+import Data from '../components/Data';
 
 class DashboardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {},
-      user_days: [],
+      userDays: [],
       today: {}
     }
     this.changeAmount = this.changeAmount.bind(this)
@@ -27,7 +28,7 @@ class DashboardContainer extends Component {
       .then(body => {
         this.setState({
           user: body.user,
-          user_days: body.user_days,
+          userDays: body.user_days,
           today: body.today
         })
       })
@@ -77,6 +78,12 @@ class DashboardContainer extends Component {
               changeAmount={this.changeAmount}
             />
           </div>
+        </div>
+        <div className="DataContainer">
+          <Data
+            user={this.state.user}
+            userDays={this.state.userDays}
+          />
         </div>
       </div>
     )
