@@ -85,7 +85,21 @@ class Counter extends Component {
 
   handleSubtractTen(event) {
     if (this.state.amount - 10 < 1) {
+      let newAmount = 0
+      let amountPayload = newAmount
+      this.props.changeAmount(amountPayload)
+      let percent = Math.round((newAmount / this.state.dailyGoal) * 100)
+      let percentCounter =
+        <CountUp
+          className="percent"
+          duration={2}
+          start={this.state.percent}
+          end={percent}
+          useEasing={true}
+        />
       this.setState({amount: 0})
+      this.setState({lastPercent: this.state.percent})
+      this.setState({percent: percent})
     } else {
       let newAmount = this.state.amount - 10
       let amountPayload = newAmount
