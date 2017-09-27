@@ -8,7 +8,8 @@ class DashboardContainer extends Component {
     this.state = {
       user: {},
       userDays: [],
-      today: {}
+      today: {},
+      recentDays: []
     }
     this.changeAmount = this.changeAmount.bind(this)
   }
@@ -29,7 +30,8 @@ class DashboardContainer extends Component {
         this.setState({
           user: body.user,
           userDays: body.user_days,
-          today: body.today
+          today: body.today,
+          recentDays: body.recent_days
         })
       })
   }
@@ -83,6 +85,8 @@ class DashboardContainer extends Component {
           <Data
             user={this.state.user}
             userDays={this.state.userDays}
+            today={this.state.today}
+            recentDays={this.state.recentDays}
           />
         </div>
       </div>
