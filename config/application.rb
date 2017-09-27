@@ -13,6 +13,9 @@ module Vital
     # -- all .rb files in that directory are automatically loaded.
     config.before_configuration do
       require 'carrierwave'
+
+    config.serve_static_assets = true
+
     end
   end
 end
