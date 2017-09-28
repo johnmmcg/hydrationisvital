@@ -16,7 +16,6 @@ feature 'User can sign up', js: true do
 
     fill_in 'Email', with: 'test@gmail.com'
     fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
     fill_in 'Daily goal', with: '12'
     fill_in 'Metric', with: 'cups'
 
@@ -30,7 +29,6 @@ feature 'User can sign up', js: true do
 
     fill_in 'Email', with: 'not a valid email'
     fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
     fill_in 'Daily goal', with: '12'
     fill_in 'Metric', with: 'cups'
 
@@ -44,7 +42,6 @@ feature 'User can sign up', js: true do
 
     fill_in 'Email', with: ''
     fill_in 'Password', with: ''
-    fill_in 'Password confirmation', with: ''
     fill_in 'Daily goal', with: '12'
     fill_in 'Metric', with: 'cups'
 
@@ -61,7 +58,6 @@ feature 'User can sign up', js: true do
 
     fill_in 'Email', with: 'test@gmail.com'
     fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
     fill_in 'Daily goal', with: '12'
     fill_in 'Metric', with: 'cups'
 
@@ -78,7 +74,6 @@ feature 'User can sign up', js: true do
 
     fill_in 'Email', with: 'test@gmail.com'
     fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
     fill_in 'Daily goal', with: ''
     fill_in 'Metric', with: ''
     click_button 'Sign up'

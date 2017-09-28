@@ -14,16 +14,21 @@ class Data extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
     }
   }
 
   render() {
     let recentDaysData = []
     this.props.recentDays.forEach(ud => {
-      let cleanRecentDay = {amount: ud.amount, day: ud.weekdayAbbr}
-      recentDaysData.push(cleanRecentDay)
+      if (ud.day.id == this.props.today.id) {
+        let cleanRecentDay = {amount: this.props.today.amount, day: this.props.weekdayAbbr}
+        recentDaysData.push(cleanRecentDay)
+      } else {
+        let cleanRecentDay = {amount: ud.amount, day: ud.weekdayAbbr}
+        recentDaysData.push(cleanRecentDay)
+      }
     })
-
 
     return(
       <div className="row data">

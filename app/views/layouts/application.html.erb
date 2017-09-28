@@ -39,7 +39,11 @@
         <div class="small-7 columns animated fadeInDown">
 
         <% if user_signed_in? %>
-            <h3> hi <strong><%= current_user.email %></strong> </h3>
+            <h3>
+              <a class="greeting" href="/users/<%="#{current_user.id}"%>">
+                hi <strong><%= current_user.email %></strong>
+              </a>
+            </h3>
         </div>
         <div class="small-5 small-left columns animated fadeInDown">
           <%= link_to edit_user_registration_path do %>

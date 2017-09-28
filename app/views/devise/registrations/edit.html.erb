@@ -1,44 +1,24 @@
 <div class="row">
-  <div class="small-12 small-centered columns animated fadeInUp">
+  <div class="small-12 small-centered columns animated fadeInDown form">
 
     <h2>Edit Account</h2>
 
     <%= form_for :user, html: { method: :put } do |f| %>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email %><i>(you can change your email here)</i>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :daily_goal %> <br />
+        <%= f.label :daily_goal %>
         <%= f.text_field :daily_goal %>
       </div>
 
       <div class="field">
-        <%= f.label :metric %> <br />
+        <%= f.label :metric %>
         <%= f.text_field :metric %>
       </div>
-
 
 
       <div class="actions">
@@ -46,11 +26,18 @@
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <div class="back">
+      <%= link_to "go back", :back %>
+    </div>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <br/>
 
-    <%= link_to "Back", :back %>
 
+  </div>
+
+  <div class="cancelContainer animated fadeInUp">
+    <h4> danger zone </h4>
+    <h3>Do you want to delete your account?</h3>
+    <%= button_to "Delete", registration_path(@user), data: { confirm: "We'd be so sad to see you go :( Are you sure?" }, method: :delete %>
   </div>
 </div>

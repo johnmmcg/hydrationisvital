@@ -29,8 +29,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    sign_in @user
-    render :show
+    if current_user == @user
+      render :show
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def update
