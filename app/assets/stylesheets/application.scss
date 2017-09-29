@@ -70,7 +70,7 @@ body {
   h3 {
     text-align: center;
     margin-top: 5px;
-    padding-top: 7px;
+    padding-top: 5px;
     font-size: 12px;
     text-align: left;
     font-family: $comfort;
@@ -313,10 +313,6 @@ body {
     font-size: 100px;
   }
 
-  h3 {
-    margin: 50px auto;
-  }
-
   a {
     border: double 2px $light-blue;
     background: image-url('BubbleColor.svg');
@@ -333,7 +329,7 @@ body {
     transition: .5s;
 
     &:hover {
-      font-size: 50px;
+      font-size: 45px;
       color: $dark-blue;
       border: solid 2px $dark-blue;
       background: $light-blue;
@@ -549,21 +545,34 @@ body {
   margin-top: 40px;
   text-align: center;
   margin-bottom: 15px;
+  border: solid 5px $dark-blue;
 
   h3 {
+    margin: 0 auto;
     font-family: $comfort;
     font-size: 18px;
-    color: $dark-blue;
+    background: image-url('BubbleColor.svg');
+    background-size: contain;
+    color: transparent;
+    width: auto;
+    text-align: center;
+    text-shadow: 2px 2px $light-blue;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
 
-  img {
-    margin-top: 5px;
-    border: solid 5px $dark-blue;
+  strong {
+    text-decoration: underline;
+    font-family: $megrim;
+    font-size: 28px;
   }
+
 }
 
 .calculator {
   margin: 5px auto;
+  margin-top: 0px;
   padding: 10px;
   text-align: center;
 
@@ -602,6 +611,7 @@ body {
     border-bottom: solid 2px $dark-blue;
     text-align: center;
     margin: 5px auto;
+    margin-bottom: 15px;
     width: 40%;
     outline: none;
     background-color: transparent;

@@ -14,7 +14,7 @@ const Welcome = props => {
         <div className="info">
           <img src="http://weightlossdiet101.com/wp-content/uploads/2016/02/howmuchwater.jpg" />
 
-          <h3>how much water should I drink?</h3>
+          <h3>how much <strong>water</strong> should I drink?</h3>
 
           <img src="https://i.pinimg.com/originals/2e/1d/05/2e1d0582a3da2413199e38b9eb14dcf9.png" />
         </div>
