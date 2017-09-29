@@ -12,12 +12,6 @@ feature 'User can change amount', js: true do
     find('input[name="commit"]').click
   end
 
-  after(:each) do
-    visit user_path(@user)
-
-    find('i.fa.fa-sign-out.icon').click
-  end
-
   scenario 'user can add 10, and reaches goal' do
     visit user_path(@user)
 
@@ -60,6 +54,7 @@ feature 'User can change amount', js: true do
     find('i.fa.fa-angle-up.ten').click
 
     find('i.one.fa.fa-angle-down').click
+
     expect(page).to have_content('9')
     expect(page).to have_content('90%')
 
