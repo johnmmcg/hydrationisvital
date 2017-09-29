@@ -1,27 +1,27 @@
 <div class="row">
-  <div class="small-12 small-centered columns animated fadeInDown form">
+  <div class="small-12 small-centered columns form">
 
-    <h2>Log in</h2>
+    <h2 class="animated fadeInDown">Log in</h2>
 
     <%= form_for :user do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
+      <div class="field animated fadeInLeft">
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
+      <div class="field animated fadeInRight">
+        <%= f.label :password %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
-      <div class="actions">
+      <div class="actions animated fadeInRight">
         <%= f.submit "Log in" %>
       </div>
     <% end %>
 
+    <div class="signinlink animated fadeInUp">
+      <%= link_to 'Not registered? Sign up here.', new_user_registration_path %>
+    </div>
   </div>
 
-  <div class="signinlink animated fadeInUp">
-    <%= link_to 'Not registered? Sign up here.', new_user_registration_path %>
-  </div>
 </div>

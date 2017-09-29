@@ -8,7 +8,9 @@ feature 'User can sign in', js: true do
     expect(page).to have_content('Log in')
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
-    expect(page).to have_button('Log in')
+
+    expect(page).not_to have_content('Daily goal')
+    expect(page).not_to have_content('Metric')
   end
 
   scenario 'A visitor can get to sign in page by clicking log in link on sign up form' do
@@ -32,6 +34,12 @@ feature 'User can sign in', js: true do
     find('input[name="commit"]').click
 
     expect(page).to have_content('hi spec@gmail.com')
+
+    expect(page).not_to have_content('Log in')
+
+    visit user_path(@user)
+
+    find('i.fa.fa-sign-out.icon').click
   end
 
   scenario 'A user tries to log in with incorrect email and password' do
@@ -39,12 +47,14 @@ feature 'User can sign in', js: true do
 
     visit new_user_session_path
 
-    fill_in 'Email', with: 'spec2@gmial.com'
+    fill_in 'Email', with: 'spec2@gmail.com'
     fill_in 'Password', with: 'passwrod'
 
     find('input[name="commit"]').click
 
     expect(page).to have_content('Log in')
     expect(page).to have_content('Email')
+
+    expect(page).not_to have_content('hi spec@gmail.com')
   end
 end

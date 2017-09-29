@@ -22,6 +22,11 @@ feature 'User can sign up', js: true do
     click_button('Sign up')
 
     expect(page).to have_content('hi test@gmail.com')
+
+    expect(page).not_to have_content('Log in')
+    expect(page).not_to have_content('Sign up')
+
+
   end
 
   scenario 'A visitor provides incorrect email' do
@@ -35,6 +40,8 @@ feature 'User can sign up', js: true do
     click_button('Sign up')
 
     expect(page).to have_content("Sign up")
+
+    expect(page).not_to have_content("hi")
   end
 
   scenario 'A visitor provides no email or password' do
@@ -49,10 +56,12 @@ feature 'User can sign up', js: true do
 
     expect(page).to have_content('Sign up')
     expect(page).to have_content("Email can't be blank, Password can't be blank")
+
+    expect(page).not_to have_content("hi")
   end
 
   scenario 'A visitor provides an email already taken' do
-    User.create(email: 'test@gmail.com', password: 'password', daily_goal: 10, metric: 'cups')
+    @user = User.create(email: 'test@gmail.com', password: 'password', daily_goal: 10, metric: 'cups')
 
     visit new_user_registration_path
 
@@ -65,6 +74,8 @@ feature 'User can sign up', js: true do
 
     expect(page).to have_content('Sign up')
     expect(page).to have_content("Email has already been taken")
+
+    expect(page).not_to have_content("hi test@gmail.com")
   end
 
   scenario 'A visitor leaves daily goal and metric blank' do
@@ -80,7 +91,7 @@ feature 'User can sign up', js: true do
 
     expect(page).to have_content('Sign up')
     expect(page).to have_content("Daily goal can't be blank, Metric can't be blank")
+
+    expect(page).not_to have_content("hi test@gmail.com")
   end
-
-
 end

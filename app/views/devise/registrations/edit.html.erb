@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-12 small-centered columns animated fadeInDown form">
+  <div class="small-12 small-centered columns animated fadeInUp form">
 
     <h2>Edit Account</h2>
 
@@ -27,17 +27,15 @@
     <% end %>
 
     <div class="back">
-      <%= link_to "go back", :back %>
+      <%= link_to "go back", user_path(@user) %>
     </div>
 
     <br/>
 
-
-  </div>
-
-  <div class="cancelContainer animated fadeInUp">
-    <h4> danger zone </h4>
-    <h3>Do you want to delete your account?</h3>
-    <%= button_to "Delete", registration_path(@user), data: { confirm: "We'd be so sad to see you go :( Are you sure?" }, method: :delete %>
+    <div class="cancelContainer animated fadeIn">
+      <h4> danger zone </h4>
+      <h3>Do you want to delete your account?</h3>
+      <%= button_to "Delete", registration_path(@user), data: { confirm: "We'd be so sad to see you go :( Are you sure?" }, method: :delete %>
+    </div>
   </div>
 </div>

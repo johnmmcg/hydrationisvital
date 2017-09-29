@@ -196,11 +196,14 @@ body {
       text-align: center;
       color: $light-blue;
       padding: 0px;
-      font-size: 25px;
-      transition: .2s;
 
-      &:hover {
-        font-size: 30px;
+      .one {
+        font-size: 25px;
+        transition: .2s;
+
+        &:hover {
+          font-size: 30px;
+        }
       }
     }
 
@@ -308,6 +311,33 @@ body {
     border: solid 5px $light-blue;
     background-color: $dark-blue;
     font-size: 100px;
+  }
+
+  h3 {
+    margin: 50px auto;
+  }
+
+  a {
+    border: double 2px $light-blue;
+    background: image-url('BubbleColor.svg');
+    background-size: contain;
+    color: $light-blue;
+    margin: 10px auto;
+    padding: 15px;
+    width: auto;
+    text-align: center;
+    -webkit-box-shadow: none;
+    font-family: $megrim;
+    font-size: 40px;
+    text-align: center;
+    transition: .5s;
+
+    &:hover {
+      font-size: 50px;
+      color: $dark-blue;
+      border: solid 2px $dark-blue;
+      background: $light-blue;
+    }
   }
 }
 
@@ -512,5 +542,89 @@ body {
       background-color: red;
       border-color: $gray;
     }
+  }
+}
+
+.info {
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 15px;
+
+  h3 {
+    font-family: $comfort;
+    font-size: 18px;
+    color: $dark-blue;
+  }
+
+  img {
+    margin-top: 5px;
+    border: solid 5px $dark-blue;
+  }
+}
+
+.calculator {
+  margin: 5px auto;
+  padding: 10px;
+  text-align: center;
+
+  h3 {
+    text-decoration: underline;
+    margin: 1px auto;
+    font-family: $comfort;
+    font-weight: bolder;
+    color: $dark-blue;
+    font-size: 16px;
+  }
+
+  h4 {
+    padding: 0px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 12px;
+    font-family: $bungee-thin;
+    font-weight: bolder;
+    font-size: 18px;
+    width: 80%;
+    color: $medium-blue;
+    border-bottom: solid 2px $dark-blue;
+  }
+
+
+  label {
+    text-decoration: underline;
+    margin: 0 auto;
+    font-family: $comfort;
+    color: $dark-blue;
+    font-size: 16px;
+  }
+
+  input {
+    border-bottom: solid 2px $dark-blue;
+    text-align: center;
+    margin: 5px auto;
+    width: 40%;
+    outline: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    font-family: $bungee-thin;
+    font-weight: bolder;
+    font-size: 20px;
+    color: $medium-blue;
+    transition: .5s;
+
+    &:focus {
+      width: 50%;
+      border: solid 2px $dark-blue;
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  input::placeholder {
+    font-family: $bungee-thin;
+    font-weight: bolder;
+    color: $dark-blue;
+    opacity: .4;
   }
 }

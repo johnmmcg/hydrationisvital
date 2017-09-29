@@ -158,13 +158,13 @@ class Counter extends Component {
               <div className="add">
                 <i className="fa fa-angle-up ten" aria-hidden="true" onClick={this.handleAddTen}></i>
                   <br/>
-                <i className="fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
+                <i className="one fa fa-angle-up" aria-hidden="true" onClick={this.handleAdd}></i>
               </div>
 
               <h1> {this.state.amount} </h1>
 
               <div className="subtract">
-                <i className="fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
+                <i className="one fa fa-angle-down" aria-hidden="true" onClick={this.handleSubtract}></i>
                 <br/>
               <i className="fa fa-angle-down ten" aria-hidden="true" onClick={this.handleSubtractTen}></i>
             </div>

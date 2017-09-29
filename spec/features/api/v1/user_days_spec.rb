@@ -20,6 +20,8 @@ RSpec.feature 'UserDaysController' do
     expect(page).to have_content('amount')
     expect(page).to have_content('10')
     expect(page).to have_content('3')
+
+    expect(page).not_to have_content('email')
   end
 
   scenario 'send a data of a user_day to show' do
@@ -28,10 +30,15 @@ RSpec.feature 'UserDaysController' do
     expect(page).to have_content('email')
     expect(page).to have_content('test@gmail.com')
 
-    expect(page).to have_content("date")
+    expect(page).to have_content('today')
+    expect(page).to have_content('day')
+    expect(page).to have_content('date')
     expect(page).to have_content(Date.today)
 
     expect(page).to have_content('amount')
     expect(page).to have_content('10')
+
+    expect(page).not_to have_content('"email": "example@gmail.com"')
+    expect(page).not_to have_content('"amount": 3,')
   end
 end

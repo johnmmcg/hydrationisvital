@@ -9,7 +9,8 @@ const App = (props) => {
     <Router history={browserHistory} >
         <Route exact path='/' component={Welcome}>
         </Route>
-        <Route path='/users/:user' component={NavBar} >
+
+        <Route exact path='/users/:user' component={NavBar} >
           <IndexRoute component={DashboardContainer} />
         </Route>
     </Router>
