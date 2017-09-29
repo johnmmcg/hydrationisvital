@@ -147,7 +147,7 @@ class Counter extends Component {
           </div>
         </div>
 
-        <div className='row align-center counter animated fadeInUp'>
+        <div className='row align-center counter animated fadeInDown'>
           <div className="row">
 
             <div className='small-4 columns'>
