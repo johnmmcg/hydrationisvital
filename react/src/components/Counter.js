@@ -141,13 +141,13 @@ class Counter extends Component {
     return(
       <div>
         <div className="row">
-          <div className="small-12 small-centered columns flash animated fadeIn">
+          <div className="small-12 small-centered columns flash animated fadeInUp">
             <h3> {error} </h3>
             <h3> {goalReachAlert} </h3>
           </div>
         </div>
 
-        <div className='row align-center counter animated fadeInDown'>
+        <div className='row align-center counter animated fadeIn'>
           <div className="row">
 
             <div className='small-4 columns'>
