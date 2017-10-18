@@ -7,7 +7,7 @@ const Welcome = props => {
     <div className="row">
       <div className="small-12 small-centered columns welcome animated fadeInUp">
         <h2> hydration is vital. </h2>
-        <p>You need water. Dehydration is one of the causes of tiredness, headaches, and indigestion.</p>
+        <p>You need water. Dehydration is one of the main causes of tiredness, headaches, and indigestion.</p>
 
         <p>Vital Hydration Tracker is a tool created to help people live healthier lives by being mindful of their water consumption.</p>
 

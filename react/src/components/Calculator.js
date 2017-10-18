@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router'
 
 class Calculator extends Component {
@@ -12,6 +12,7 @@ class Calculator extends Component {
   }
 
   handleWeightChange(event) {
+    console.log(event.target.value);
     let newWeight = event.target.value
     this.setState({ weight: newWeight })
     let dailyGoal = Math.round(((newWeight/2)/8))
@@ -23,7 +24,7 @@ class Calculator extends Component {
       <div className="calculator">
         <div className="row">
           <form>
-            <div className="small-6 medium-6 small columns animated fadeInLeft">
+            <div className="small-6 medium-6 columns animated fadeInLeft">
               <label>
                 your body weight
               </label>
