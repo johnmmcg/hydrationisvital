@@ -4,7 +4,7 @@ Vital
 
 live @ https://hyrdationisvital.herokuapp.com/
 
-#hydationisvital
+#hydrationisvital
 
 A web app for clean, simple hydration tracking.
 
