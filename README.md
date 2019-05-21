@@ -2,7 +2,7 @@
 
 Vital
 
-live @ https://hyrdationisvital.herokuapp.com/
+live @ https://hydrationisvital.herokuapp.com/
 
 #hydrationisvital
 
